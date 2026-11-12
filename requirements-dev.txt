@@ -1,0 +1,4 @@
+-r requirements.txt
+
+# Needed by FastAPI's TestClient in tests/test_api.py
+httpx>=0.28,<1

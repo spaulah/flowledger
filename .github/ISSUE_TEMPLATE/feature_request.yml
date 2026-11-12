@@ -1,0 +1,32 @@
+name: Feature request
+description: Suggest an improvement
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        FlowLedger is meant to stay a small, single-user, local tool. Read the scope section of [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md) first. Please do not paste real flow data here.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+      description: Describe what you want to do and why it is hard today.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you like to see?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - label: This works for a single user running the tool locally. It does not need accounts, a hosted service, or a web UI.
+          required: true

@@ -1,0 +1,17 @@
+# Direct dependencies. Each lower bound is the version this project was tested with.
+# The upper bound is the next major version, so a breaking release does not install by surprise.
+# CI installs these on Python 3.11, 3.12 and 3.13 and runs the tests.
+
+requests>=2.32,<3
+python-dotenv>=1.2,<2
+rich>=14.3,<15
+
+chromadb>=1.5,<2
+langchain-core>=1.2,<2
+langchain-openai>=1.1,<2
+langchain-chroma>=1.1,<2
+langchain-text-splitters>=1.1,<2
+
+fastapi>=0.129,<1
+pydantic>=2.12,<3
+uvicorn>=0.40,<1

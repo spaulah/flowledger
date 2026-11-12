@@ -1,0 +1,89 @@
+name: Bug report
+description: Something does not work as documented
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Do not paste real flow definitions, run history, tenant or environment IDs, tokens, client secrets, or API keys.** Redact them first. Output from `LOG_LEVEL=DEBUG` contains endpoint URLs and environment IDs.
+
+        For a security problem, do not open an issue. Follow [SECURITY.md](../blob/main/SECURITY.md) instead.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you do, and what went wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: The commands you ran, in order. A small synthetic flow that triggers the problem helps most.
+      placeholder: |
+        1. python jobs/download_flows.py
+        2. python jobs/reindex_local.py --rebuild
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Where does it happen?
+      options:
+        - Download job (jobs/download_flows.py)
+        - Indexing (jobs/reindex_local.py, rag_service.py)
+        - Terminal interface (main.py)
+        - HTTP API (api.py)
+        - Redaction (redaction.py)
+        - Setup scripts (scripts/)
+        - Documentation
+        - Something else
+    validations:
+      required: true
+  - type: dropdown
+    id: model-endpoint
+    attributes:
+      label: Chat and embeddings endpoint
+      options:
+        - OpenAI
+        - Azure OpenAI or Azure AI Foundry
+        - Ollama
+        - LM Studio
+        - Another OpenAI-compatible server
+        - Not relevant
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: The commit hash from `git rev-parse --short HEAD`.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Python version and operating system
+      placeholder: Python 3.12, macOS 15
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log output
+      description: Redacted output, if relevant. Remove endpoint URLs, tenant and environment IDs, and flow names you do not want to share.
+      render: text
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Before you submit
+      options:
+        - label: I removed secrets, tenant and environment IDs, and real flow data from this report.
+          required: true

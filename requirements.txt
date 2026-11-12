@@ -13,5 +13,5 @@ langchain-chroma>=1.1,<2
 langchain-text-splitters>=1.1,<2
 
 fastapi>=0.129,<1
-pydantic>=2.12,<3
+pydantic>=2.14.3,<3
 uvicorn>=0.54.0,<1
